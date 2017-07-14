@@ -1,0 +1,61 @@
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff">
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/pin"
+            android:layout_weight="1"
+            android:width="7dp"
+            android:textColor="#060606"
+            android:gravity="center"/>
+
+
+        <TextView
+            android:id="@+id/nama"
+            android:layout_weight="2"
+            android:width="60dp"
+            android:textColor="#000000"
+            android:gravity="center"/>
+        <!--<TextView-->
+        <!--android:id="@+id/vs" android:text="vs"-->
+        <!--android:layout_weight="1"-->
+        <!--android:width="20dp"-->
+        <!--android:textColor="#be0e0e"-->
+        <!--android:gravity="center"/>-->
+        <TextView
+            android:id="@+id/tanggal"
+            android:layout_weight="2"
+            android:width="60dp"
+            android:textColor="#000000"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/jam_datang"
+            android:layout_weight="2"
+            android:width="60dp"
+            android:textColor="#000000"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/istirahat"
+            android:layout_weight="2"
+            android:width="60dp"
+            android:textColor="#000000"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/masuk"
+            android:layout_weight="2"
+            android:width="60dp"
+            android:textColor="#000000"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/jam_pulang"
+            android:layout_weight="2"
+            android:width="60dp"
+            android:textColor="#000000"
+            android:gravity="center"/>
+    </TableRow>
+</TableLayout>

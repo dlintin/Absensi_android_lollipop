@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/blm_scan"
+            android:icon="@drawable/ic_report_black_24dp"
+            android:title="Belum Scan Hari Ini" />
+        <item
+            android:id="@+id/last"
+            android:icon="@drawable/ic_assignment_black_24dp"
+            android:title="Absen Terbaru" />
+
+
+    </group>
+
+    <item android:title="Laporan">
+        <menu>
+            <item
+                android:id="@+id/nav_manage"
+                android:icon="@drawable/ic_date_range_black_24dp"
+                android:title="Lihat Berdasarkan Tanggal" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_assignment_ind_black_24dp"
+                android:title="Laporan Perorang" />
+
+        </menu>
+    </item>
+
+    <item android:title="Status dan Jumlah">
+        <menu>
+            <item
+                android:id="@+id/stat_absensi"
+                android:icon="@drawable/ic_assignment_black_24dp"
+                android:title="Status Absensi" />
+            <item
+                android:id="@+id/jml_absensi"
+                android:icon="@drawable/ic_assignment_black_24dp"
+                android:title="Jumlah Tiap Status" />
+
+        </menu>
+    </item>
+
+    <item android:title="Akun">
+        <menu>
+            <item
+                android:id="@+id/btn_logout"
+                android:icon="@drawable/ic_exit_to_app_black_24dp"
+                android:title="Keluar" />
+        </menu>
+    </item>
+</menu>

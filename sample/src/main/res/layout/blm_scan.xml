@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff">
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+            <TextView
+                android:id="@+id/no" android:text="No"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:background="#464646"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/pin" android:text="PIN"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:background="#464646"
+                android:gravity="center"/>
+            <!--<TextView-->
+            <!--android:id="@+id/vs"-->
+            <!--android:layout_weight="1"-->
+            <!--android:textColor="#00ff00"-->
+            <!--android:gravity="center"/>-->
+            <TextView
+                android:id="@+id/nama" android:text="Nama"
+                android:layout_weight="1"
+                android:textColor="#ffffff"
+                android:background="#464646"
+                android:gravity="center"/>
+
+        </TableRow>
+        <ListView
+            android:id="@android:id/list"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" >
+        </ListView>
+    </TableLayout>
+</RelativeLayout>
