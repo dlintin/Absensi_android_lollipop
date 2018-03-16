@@ -26,12 +26,12 @@ ext {
 }
 
 android {
-    compileSdkVersion Integer.parseInt(project.ANDROID_BUILD_SDK_VERSION)
-    buildToolsVersion project.ANDROID_BUILD_TOOLS_VERSION
+    compileSdkVersion 26
+
 
     defaultConfig {
-        minSdkVersion Integer.parseInt(project.ANDROID_BUILD_MIN_SDK_VERSION)
-        targetSdkVersion Integer.parseInt(project.ANDROID_BUILD_TARGET_SDK_VERSION)
+        minSdkVersion 21
+        targetSdkVersion 26
         versionName project.VERSION_NAME
         versionCode Integer.parseInt(project.VERSION_CODE)
     }
@@ -41,12 +41,12 @@ android {
             minifyEnabled false
         }
     }
-    buildToolsVersion '25.0.0'
+
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:23.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:support-v4:26.0.2'
 }
 
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'

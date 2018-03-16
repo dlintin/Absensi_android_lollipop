@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff">
+        android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff"
+        tools:ignore="UselessParent">
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
             <TextView
-                android:id="@+id/pin" android:text="PIN"
+                android:id="@+id/pin" android:text="@string/pin"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/nama" android:text="Nama"
+                android:id="@+id/nama" android:text="@string/nama"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
@@ -28,31 +30,31 @@
             <!--android:textColor="#00ff00"-->
             <!--android:gravity="center"/>-->
             <TextView
-                android:id="@+id/tanggal" android:text="Tanggal"
+                android:id="@+id/tanggal" android:text="@string/tanggal"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/terlambat" android:text="Terlmbat"
+                android:id="@+id/terlambat" android:text="@string/terlmbat"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/hadir" android:text="Hadir"
+                android:id="@+id/hadir" android:text="@string/hadir"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/stat_lembur" android:text="Lembur"
+                android:id="@+id/stat_lembur" android:text="@string/lembur"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/jml_lembur" android:text="Jml Lembur"
+                android:id="@+id/jml_lembur" android:text="@string/jml_lembur"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
@@ -63,9 +65,7 @@
             android:divider="@android:color/darker_gray"
             android:dividerHeight="1dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true" >
+            android:layout_height="wrap_content">
         </ListView>
     </TableLayout>
 </RelativeLayout>

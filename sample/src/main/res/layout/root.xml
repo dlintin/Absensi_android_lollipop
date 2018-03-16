@@ -29,8 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="44dp"
-        android:text="Manna Teknologi"
-        android:textSize="16dp"
+        android:text="@string/manna_teknologi"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
         android:layout_alignRight="@+id/imageView2"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="23dp"
-        android:text="www.mannateknologi.com"
+        android:text="@string/www_mannateknologi_com"
         android:layout_alignTop="@+id/textView"
         android:layout_centerHorizontal="true" />
 

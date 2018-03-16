@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -26,8 +27,8 @@
             android:layout_gravity="center"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
-            android:text="www.mannateknologi.com"
-            android:textSize="18dip"
+            android:text="@string/www_mannateknologi_com"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
@@ -36,8 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dip"
-            android:text="REGISTER BELOW"
-            android:textSize="16dip" />
+            android:text="@string/register_below"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/txt_username"
@@ -45,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:hint="Username"
+            android:hint="@string/username"
             android:inputType="textEmailAddress"
             android:singleLine="true" />
 
@@ -55,20 +56,20 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:hint="Password"
-            android:password="true"
-            android:singleLine="true" />
+            android:hint="@string/password"
+            android:singleLine="true"
+            tools:ignore="TextFields" />
 
         <EditText
             android:id="@+id/txt_confirm_password"
             android:layout_width="227dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:layout_weight="0.25"
-            android:hint="Ulangi Password"
-            android:password="true"
-            android:singleLine="true" />
+            android:hint="@string/ulangi_password"
+            android:singleLine="true"
+            tools:ignore="TextFields" />
 
         <Button
             android:id="@+id/btn_register"
@@ -78,7 +79,7 @@
             android:layout_marginBottom="15dp"
             android:background="#448AFF"
             android:textColor="#fff"
-            android:text="Register"
+            android:text="@string/register"
             android:textStyle="bold" />
 
         <Button
@@ -88,7 +89,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
             android:background="#00555555"
-            android:text="Login"
+            android:text="@string/login"
             android:textStyle="bold" />
 
     </LinearLayout>

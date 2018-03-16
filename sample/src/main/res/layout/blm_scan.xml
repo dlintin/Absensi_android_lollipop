@@ -11,13 +11,13 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
             <TextView
-                android:id="@+id/no" android:text="No"
+                android:id="@+id/no" android:text="@string/no"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/pin" android:text="PIN"
+                android:id="@+id/pin" android:text="@string/pin"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
@@ -28,7 +28,7 @@
             <!--android:textColor="#00ff00"-->
             <!--android:gravity="center"/>-->
             <TextView
-                android:id="@+id/nama" android:text="Nama"
+                android:id="@+id/nama" android:text="@string/nama"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"

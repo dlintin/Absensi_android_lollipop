@@ -24,7 +24,7 @@ import java.util.HashMap;
  */
 public class terbaru extends Fragment {
     //URL to get JSON
-    private String URL_ITEMS = "http://192.168.1.88/absensi/android/android_table/getFixture.php";
+    private String URL_ITEMS = "http://10.0.2.2/absensi/android/android_table/getFixture.php";
     //JSON Node Names
     private static final String TAG_FIXTURE = "fixture";
     private static final String TAG_PIN = "pin";

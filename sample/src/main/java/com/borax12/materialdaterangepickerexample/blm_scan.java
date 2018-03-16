@@ -24,7 +24,7 @@ import java.util.HashMap;
  */
 public class blm_scan extends Fragment {
     //URL to get JSON
-    private String URL_ITEMS = "http://192.168.1.88/absensi/android/android_table/laporan_blmhadir.php";
+    private String URL_ITEMS = "http://10.0.2.2/absensi/android/android_table/laporan_blmhadir.php";
     //JSON Node Names
     private static final String TAG_FIXTURE = "fixture";
     private static final String TAG_NO = "no";

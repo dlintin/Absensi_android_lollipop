@@ -27,7 +27,7 @@ public class select_tanggalreport extends Fragment {
     String tglawal,tglakhir;
 
     //URL to get JSON
-    private String URL_ITEMS = "http://192.168.1.88/absensi/android/android_table/getFixtureRanged.php?tglawal=";
+    private String URL_ITEMS = "http://10.0.2.2/absensi/android/android_table/getFixtureRanged.php?tglawal=";
 
     //JSON Node Names
     private static final String TAG_FIXTURE = "fixture";

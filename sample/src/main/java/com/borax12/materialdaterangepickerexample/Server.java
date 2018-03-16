@@ -5,5 +5,5 @@ package com.borax12.materialdaterangepickerexample;
  */
 
 public class Server {
-    public static final String URL = "http://192.168.1.88/absensi/android/android_login/";
+    public static final String URL = "http://10.0.2.2/absensi/android/android_login/";
 }

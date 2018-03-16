@@ -11,13 +11,13 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
             <TextView
-                android:id="@+id/pin" android:text="PIN"
+                android:id="@+id/pin" android:text="@string/pin"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/nama" android:text="Nama"
+                android:id="@+id/nama" android:text="@string/nama"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
@@ -28,31 +28,31 @@
             <!--android:textColor="#00ff00"-->
             <!--android:gravity="center"/>-->
             <TextView
-                android:id="@+id/tanggal" android:text="Tanggal"
+                android:id="@+id/tanggal" android:text="@string/tanggal"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/jam_datang" android:text="Jam Datang"
+                android:id="@+id/jam_datang" android:text="@string/jam_datang"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/istirahat" android:text="Istirahat"
+                android:id="@+id/istirahat" android:text="@string/istirahat"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/masuk" android:text="Masuk"
+                android:id="@+id/masuk" android:text="@string/masuk"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/jam_pulang" android:text="Jam Pulang"
+                android:id="@+id/jam_pulang" android:text="@string/jam_pulang"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
@@ -63,9 +63,7 @@
             android:divider="@android:color/darker_gray"
             android:dividerHeight="1dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true" >
+            android:layout_height="wrap_content">
         </ListView>
     </TableLayout>
 </RelativeLayout>
