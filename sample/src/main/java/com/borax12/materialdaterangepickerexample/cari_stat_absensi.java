@@ -46,11 +46,11 @@ public class cari_stat_absensi extends Fragment implements
 
 
         // Find our View instances
-        dateTextView = (TextView)rootView.findViewById(R.id.date_textview);
+        dateTextView = rootView.findViewById(R.id.date_textview);
 //        timeTextView = (TextView)rootView.findViewById(R.id.time_textview);
-        Button dateButton = (Button)rootView.findViewById(R.id.date_button);
+        Button dateButton = rootView.findViewById(R.id.date_button);
 //        Button timeButton = (Button)rootView.findViewById(R.id.time_button);
-        Button btn_lihat = (Button)rootView.findViewById(R.id.lihat_data);
+        Button btn_lihat = rootView.findViewById(R.id.lihat_data);
 
 //        CheckBox ahl = (CheckBox) rootView.findViewById(R.id.autohighlight_checkbox);
 //        ahl.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

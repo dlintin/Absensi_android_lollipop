@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff">
+        android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff"
+        tools:ignore="UselessParent">
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_height="wrap_content"
@@ -40,9 +42,7 @@
             android:divider="@android:color/darker_gray"
             android:dividerHeight="1dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true" >
+            android:layout_height="wrap_content">
         </ListView>
     </TableLayout>
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.borax12.materialdaterangepickerexample;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -40,7 +41,7 @@ public class blm_scan extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 //        return inflater.inflate(R.layout.terbarus, container, false);
         View rootView = inflater.inflate(R.layout.blm_scan, container, false);
-        lv= (ListView)rootView.findViewById(android.R.id.list);
+        lv= rootView.findViewById(android.R.id.list);
         return rootView;
 
     }
@@ -54,12 +55,14 @@ public class blm_scan extends Fragment {
     }
 
 
+    @SuppressLint("StaticFieldLeak")
     private class GetFixture extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
         }
 
+        @SuppressLint("LongLogTag")
         @Override
         protected Void doInBackground(Void... arg) {
             //Create service handler class instance
