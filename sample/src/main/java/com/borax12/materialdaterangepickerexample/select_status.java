@@ -26,7 +26,7 @@ import java.util.HashMap;
 /**
  * Created by Kuncoro on 22/03/2016.
  */
-public class select_tanggalreport extends Fragment {
+public class select_status extends Fragment {
 
     String tglawal,tglakhir;
 
@@ -36,9 +36,9 @@ public class select_tanggalreport extends Fragment {
     private static final String TAG_NAMA = "nama";
     private static final String TAG_TANGGAL = "tanggal";
     private static final String TAG_JAM_DATANG = "jam_datang";
-    private static final String TAG_ISTIRAHAT = "istirahat";
-    private static final String TAG_MASUK = "masuk";
-    private static final String TAG_JAM_PULANG = "jam_pulang";
+    private static final String TAG_KEHADIRAN = "Kehadiran";
+    private static final String TAG_STATUS_LEMBUR = "Status_Lembur";
+    private static final String TAG_JUMLAH_LEMBUR = "jumlah_lembur";
     ListView lv;
     // Data JSONArray
     JSONArray matchFixture = null;
@@ -53,7 +53,7 @@ public class select_tanggalreport extends Fragment {
         tglakhir = bundle.getString("tglakhir");
 
 //        return inflater.inflate(R.layout.terbarus, container, false);
-        View rootView = inflater.inflate(R.layout.terbarus, container, false);
+        View rootView = inflater.inflate(R.layout.status, container, false);
         lv= (ListView)rootView.findViewById(android.R.id.list);
 
         return rootView;
@@ -81,7 +81,7 @@ public class select_tanggalreport extends Fragment {
             //Create service handler class instance
             ServiceHandler serviceClient = new ServiceHandler();
             //Url request and response
-            String URL_ITEMS = Server.RANGE_TANGGAL;
+            String URL_ITEMS = Server.STATUS_ABSENSI;
             Log.d("url: ", "> " + URL_ITEMS +tglawal+"&tglakhir="+tglakhir);
             String json = serviceClient.makeServiceCall(URL_ITEMS +tglawal+"&tglakhir="+tglakhir, ServiceHandler.GET);
             // print the json response in the log
@@ -102,19 +102,13 @@ public class select_tanggalreport extends Fragment {
                     for (int i = 0; i < matchFixture.length(); i++) {
                         JSONObject c = matchFixture.getJSONObject(i);
                         String pin = c.getString(TAG_PIN);
-                        Log.d("pin", pin);
                         String nama = c.getString(TAG_NAMA);
-                        Log.d("nama", nama);
                         String tanggal = c.getString(TAG_TANGGAL);
-                        Log.d("tanggal", tanggal);
                         String jam_datang = c.getString(TAG_JAM_DATANG);
-                        Log.d("jam_datang", jam_datang);
-                        String istirahat = c.getString(TAG_ISTIRAHAT);
-                        Log.d("istirahat", istirahat);
-                        String masuk = c.getString(TAG_MASUK);
-                        Log.d("masuk", masuk);
-                        String jam_pulang = c.getString(TAG_JAM_PULANG);
-                        Log.d("jam_pulang", jam_pulang);
+                        String Kehadiran = c.getString(TAG_KEHADIRAN);
+                        String Status_Lembur = c.getString(TAG_STATUS_LEMBUR);
+                        String jumlah_lembur = c.getString(TAG_JUMLAH_LEMBUR);
+
                         // Temporary HashMap for single data
                         HashMap<String, String> matchFixture = new HashMap<String, String>();
                         // Adding each child node to Hashmap key -> value
@@ -122,9 +116,9 @@ public class select_tanggalreport extends Fragment {
                         matchFixture.put(TAG_NAMA, nama);
                         matchFixture.put(TAG_TANGGAL, tanggal);
                         matchFixture.put(TAG_JAM_DATANG, jam_datang);
-                        matchFixture.put(TAG_ISTIRAHAT, istirahat);
-                        matchFixture.put(TAG_MASUK, masuk);
-                        matchFixture.put(TAG_JAM_PULANG, jam_pulang);
+                        matchFixture.put(TAG_KEHADIRAN, Kehadiran);
+                        matchFixture.put(TAG_STATUS_LEMBUR, Status_Lembur);
+                        matchFixture.put(TAG_JUMLAH_LEMBUR, jumlah_lembur);
                         //Adding fixture to List
                         matchFixtureList.add(matchFixture);
                     }
@@ -144,9 +138,9 @@ public class select_tanggalreport extends Fragment {
 
 
             ListAdapter adapter = new SimpleAdapter(
-                    select_tanggalreport.this.getActivity(), matchFixtureList,
+                    select_status.this.getActivity(), matchFixtureList,
                     R.layout.list_item, new String[]{
-                    TAG_PIN, TAG_NAMA, TAG_TANGGAL, TAG_JAM_DATANG, TAG_ISTIRAHAT, TAG_MASUK,  TAG_JAM_PULANG
+                    TAG_PIN, TAG_NAMA, TAG_TANGGAL, TAG_JAM_DATANG, TAG_KEHADIRAN, TAG_STATUS_LEMBUR,  TAG_JUMLAH_LEMBUR
             }
                     , new int[]{
                     R.id.pin, R.id.nama, R.id.tanggal, R.id.jam_datang, R.id.istirahat, R.id.masuk,

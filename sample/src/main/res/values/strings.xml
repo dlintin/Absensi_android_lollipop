@@ -33,4 +33,16 @@
     <string name="istirahat">Istirahat</string>
     <string name="masuk">Masuk</string>
     <string name="jam_pulang">Jam Pulang</string>
+    <string name="belum_scan_hari_ini">BELUM SCAN HARI INI</string>
+    <string name="range_tanggal">RANGE TANGGAL</string>
+    <string name="record_hari_ini">RECORD HARI INI</string>
+    <string name="record_perorang">RECORD PERORANG</string>
+    <string name="status_absensi">STATUS ABSENSI</string>
+    <string name="akumulasi">AKUMULASI</string>
+    <string name="log_out">Log Out</string>
+    <string name="cari_pegawai">Cari Pegawai</string>
+    <string name="keterlambatan">Keterlambatan</string>
+    <string name="kehadiran">Kehadiran</string>
+    <string name="jumlah_lembur">Jumlah Lembur</string>
+    <string name="id">ID</string>
 </resources>

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff"
-        tools:ignore="UselessParent">
+        android:shrinkColumns="*"  android:stretchColumns="*" android:background="#ffffff">
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_height="wrap_content"
             android:layout_width="match_parent">
             <TextView
-                android:id="@+id/pin" android:text="@string/pin"
+                android:id="@+id/pin" android:text="@string/id"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
@@ -30,35 +28,24 @@
             <!--android:textColor="#00ff00"-->
             <!--android:gravity="center"/>-->
             <TextView
-                android:id="@+id/tanggal" android:text="@string/tanggal"
+                android:id="@+id/jam_datang" android:text="@string/keterlambatan"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/terlambat" android:text="@string/terlmbat"
+                android:id="@+id/kehadiran" android:text="@string/kehadiran"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
             <TextView
-                android:id="@+id/hadir" android:text="@string/hadir"
+                android:id="@+id/status_lembur" android:text="@string/jumlah_lembur"
                 android:layout_weight="1"
                 android:textColor="#ffffff"
                 android:background="#464646"
                 android:gravity="center"/>
-            <TextView
-                android:id="@+id/stat_lembur" android:text="@string/lembur"
-                android:layout_weight="1"
-                android:textColor="#ffffff"
-                android:background="#464646"
-                android:gravity="center"/>
-            <TextView
-                android:id="@+id/jml_lembur" android:text="@string/jml_lembur"
-                android:layout_weight="1"
-                android:textColor="#ffffff"
-                android:background="#464646"
-                android:gravity="center"/>
+
         </TableRow>
         <ListView
             android:id="@android:id/list"

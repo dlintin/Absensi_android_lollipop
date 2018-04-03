@@ -4,25 +4,28 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
-        android:name=".app.AppController"
+        android:name=".CONF.AppController"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
-        <activity
-            android:name="com.borax12.materialdaterangepickerexample.MainActivity"
-            android:label="Manna Teknologi"
-            android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/AppTheme">
+        <!--<activity android:name=".MainActivity" />-->
+
+        <activity android:name=".Menu_utama">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity android:name=".MainActivity" />-->
-
         <activity android:name=".Login" />
         <activity android:name=".Register" />
+        <activity android:name=".Activity_belum_scan" />
+        <activity android:name=".Activity_terbaru" />
+        <activity android:name=".Activity_range_tanggal" />
+        <activity android:name=".Activity_record_perorang" />
+        <activity android:name=".Activity_akumulasi" />
+        <activity android:name=".Activity_status" />
     </application>
 
 </manifest>

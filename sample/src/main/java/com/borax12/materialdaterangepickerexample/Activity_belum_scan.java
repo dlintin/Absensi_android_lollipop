@@ -1,21 +1,21 @@
 package com.borax12.materialdaterangepickerexample;
 
+
 import android.annotation.SuppressLint;
-import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
+import com.borax12.materialdaterangepickerexample.CONF.Server;
+import com.borax12.materialdaterangepickerexample.CONF.ServiceHandler;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -23,9 +23,7 @@ import java.util.HashMap;
 /**
  * Created by Kuncoro on 22/03/2016.
  */
-public class blm_scan extends Fragment {
-    //URL to get JSON
-    private String URL_ITEMS = "http://10.0.2.2/absensi/android/android_table/laporan_blmhadir.php";
+public class Activity_belum_scan extends AppCompatActivity {
     //JSON Node Names
     private static final String TAG_FIXTURE = "fixture";
     private static final String TAG_NO = "no";
@@ -35,23 +33,16 @@ public class blm_scan extends Fragment {
     // Data JSONArray
     JSONArray matchFixture = null;
     //HashMap to keep your data
-    ArrayList<HashMap<String, String>> matchFixtureList = new ArrayList<HashMap<String, String>>();
+    ArrayList<HashMap<String, String>> matchFixtureList = new ArrayList<>();
+
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        return inflater.inflate(R.layout.terbarus, container, false);
-        View rootView = inflater.inflate(R.layout.blm_scan, container, false);
-        lv= rootView.findViewById(android.R.id.list);
-        return rootView;
-
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        // Call Async task to get the match fixture
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.blm_scan);
+         lv = findViewById(android.R.id.list);
         new GetFixture().execute();
-        getActivity().setTitle("Absensi Terakhir");
+        this.setTitle("Absensi Terakhir");
     }
 
 
@@ -68,6 +59,7 @@ public class blm_scan extends Fragment {
             //Create service handler class instance
             ServiceHandler serviceClient = new ServiceHandler();
             //Url request and response
+            String URL_ITEMS = Server.BLUM_SCAN;
             Log.d("url: ", "> " + URL_ITEMS);
             String json = serviceClient.makeServiceCall(URL_ITEMS, ServiceHandler.GET);
             // print the json response in the log
@@ -95,7 +87,7 @@ public class blm_scan extends Fragment {
                         Log.d("nama", nama);
 
                         // Temporary HashMap for single data
-                        HashMap<String, String> matchFixture = new HashMap<String, String>();
+                        HashMap<String, String> matchFixture = new HashMap<>();
                         // Adding each child node to Hashmap key -> value
                         matchFixture.put(TAG_NO, no);
                         matchFixture.put(TAG_PIN, pin);
@@ -120,7 +112,7 @@ public class blm_scan extends Fragment {
 
 
             ListAdapter adapter = new SimpleAdapter(
-                    blm_scan.this.getActivity(), matchFixtureList,
+                    Activity_belum_scan.this, matchFixtureList,
                     R.layout.blm_scan_list, new String[]{
                     TAG_NO, TAG_PIN, TAG_NAMA
             }

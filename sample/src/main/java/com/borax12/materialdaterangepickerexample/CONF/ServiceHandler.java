@@ -1,4 +1,4 @@
-package com.borax12.materialdaterangepickerexample;
+package com.borax12.materialdaterangepickerexample.CONF;
 
 /**
  * Created by diand on 20-Apr-17.
@@ -9,7 +9,6 @@ import android.util.Log;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
@@ -20,7 +19,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 public class ServiceHandler {
@@ -28,7 +26,7 @@ public class ServiceHandler {
     static InputStream is = null;
     static String response = null;
     public final static int GET = 1;
-    public final static int POST = 2;
+    private final static int POST = 2;
 
     public ServiceHandler() {
 
@@ -38,8 +36,8 @@ public class ServiceHandler {
         return this.makeServiceCall(url, method, null);
     }
 
-    public String makeServiceCall(String url, int method,
-                                  List<NameValuePair> params) {
+    private String makeServiceCall(String url, int method,
+                                   List<NameValuePair> params) {
         try {
 
             DefaultHttpClient httpClient = new DefaultHttpClient();
@@ -71,10 +69,6 @@ public class ServiceHandler {
             httpEntity = httpResponse.getEntity();
             is = httpEntity.getContent();
 
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -83,9 +77,9 @@ public class ServiceHandler {
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     is, "UTF-8"), 8);
             StringBuilder sb = new StringBuilder();
-            String line = null;
+            String line;
             while ((line = reader.readLine()) != null) {
-                sb.append(line + "\n");
+                sb.append(line).append("\n");
             }
             is.close();
             response = sb.toString();

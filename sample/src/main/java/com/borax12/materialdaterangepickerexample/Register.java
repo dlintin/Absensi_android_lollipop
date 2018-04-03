@@ -16,7 +16,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.borax12.materialdaterangepickerexample.app.AppController;
+import com.borax12.materialdaterangepickerexample.CONF.AppController;
+import com.borax12.materialdaterangepickerexample.CONF.Server;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,14 +31,9 @@ public class Register extends AppCompatActivity {
     Button btn_register, btn_login;
     EditText txt_username, txt_password, txt_confirm_password;
     Intent intent;
-
     int success;
     ConnectivityManager conMgr;
-
-    private String url = Server.URL + "register.php";
-
     private static final String TAG = Register.class.getSimpleName();
-
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
 
@@ -59,11 +55,11 @@ public class Register extends AppCompatActivity {
             }
         }
 
-        btn_login = (Button) findViewById(R.id.btn_login);
-        btn_register = (Button) findViewById(R.id.btn_register);
-        txt_username = (EditText) findViewById(R.id.txt_username);
-        txt_password = (EditText) findViewById(R.id.txt_password);
-        txt_confirm_password = (EditText) findViewById(R.id.txt_confirm_password);
+        btn_login = findViewById(R.id.btn_login);
+        btn_register = findViewById(R.id.btn_register);
+        txt_username = findViewById(R.id.txt_username);
+        txt_password = findViewById(R.id.txt_password);
+        txt_confirm_password = findViewById(R.id.txt_confirm_password);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
 
@@ -103,11 +99,12 @@ public class Register extends AppCompatActivity {
         pDialog.setMessage("Register ...");
         showDialog();
 
+        String url = Server.REGISTER;
         StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "Register Response: " + response.toString());
+                Log.e(TAG, "Register Response: " + response);
                 hideDialog();
 
                 try {
@@ -153,7 +150,7 @@ public class Register extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 // Posting parameters to login url
-                Map<String, String> params = new HashMap<String, String>();
+                Map<String, String> params = new HashMap<>();
                 params.put("username", username);
                 params.put("password", password);
                 params.put("confirm_password", confirm_password);

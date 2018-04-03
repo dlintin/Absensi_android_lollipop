@@ -9,18 +9,11 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         tools:ignore="UselessParent">
+
         <TextView
             android:id="@+id/pin"
-            android:layout_weight="1"
-            android:width="7dp"
-            android:textColor="#060606"
-            android:gravity="center"/>
-
-
-        <TextView
-            android:id="@+id/nama"
             android:layout_weight="2"
-            android:width="60dp"
+            android:width="2dp"
             android:textColor="#000000"
             android:gravity="center"/>
         <!--<TextView-->
@@ -30,31 +23,25 @@
         <!--android:textColor="#be0e0e"-->
         <!--android:gravity="center"/>-->
         <TextView
-            android:id="@+id/tanggal"
+            android:id="@+id/nama"
+            android:layout_weight="2"
+            android:width="30dp"
+            android:textColor="#000000"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/jam_datang"
             android:layout_weight="2"
             android:width="60dp"
             android:textColor="#000000"
             android:gravity="center"/>
         <TextView
-            android:id="@+id/terlambat"
+            android:id="@+id/kehadiran"
             android:layout_weight="2"
             android:width="60dp"
             android:textColor="#000000"
             android:gravity="center"/>
         <TextView
-            android:id="@+id/hadir"
-            android:layout_weight="2"
-            android:width="60dp"
-            android:textColor="#000000"
-            android:gravity="center"/>
-        <TextView
-            android:id="@+id/stat_lembur"
-            android:layout_weight="2"
-            android:width="60dp"
-            android:textColor="#000000"
-            android:gravity="center"/>
-        <TextView
-            android:id="@+id/jml_lembur"
+            android:id="@+id/status_lembur"
             android:layout_weight="2"
             android:width="60dp"
             android:textColor="#000000"

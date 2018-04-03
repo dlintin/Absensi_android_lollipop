@@ -1,15 +1,16 @@
 package com.borax12.materialdaterangepickerexample;
 
-import android.app.Fragment;
+import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import com.borax12.materialdaterangepickerexample.CONF.Server;
+import com.borax12.materialdaterangepickerexample.CONF.ServiceHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,68 +20,50 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-/**
- * Created by Kuncoro on 22/03/2016.
- */
-public class stat_absensi extends Fragment {
-
-    String tglawal,tglakhir;
-
-    //URL to get JSON
-    private String URL_ITEMS = "http://10.0.2.2/absensi/android/android_table/stat.php?tglawal=";
+public class Activity_terbaru extends AppCompatActivity {
 
     //JSON Node Names
     private static final String TAG_FIXTURE = "fixture";
     private static final String TAG_PIN = "pin";
     private static final String TAG_NAMA = "nama";
     private static final String TAG_TANGGAL = "tanggal";
-    private static final String TAG_KETERLAMBATAN = "keterlambatan";
-    private static final String TAG_KEHADIRAN = "kehadiran";
-    private static final String TAG_STAT_LEMBUR = "lembur";
-    private static final String TAG_JML_LEMBUR = "jml_lembur";
+    private static final String TAG_JAM_DATANG = "jam_datang";
+    private static final String TAG_ISTIRAHAT = "istirahat";
+    private static final String TAG_MASUK = "masuk";
+    private static final String TAG_JAM_PULANG = "jam_pulang";
     ListView lv;
     // Data JSONArray
     JSONArray matchFixture = null;
     //HashMap to keep your data
-    ArrayList<HashMap<String, String>> matchFixtureList = new ArrayList<HashMap<String, String>>();
+    ArrayList<HashMap<String, String>> matchFixtureList = new ArrayList<>();
+
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//mengambil data dari tools
-        Bundle bundle = getArguments();
-        tglawal = bundle.getString("tglawal");
-        tglakhir = bundle.getString("tglakhir");
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.terbarus);
 
-//        return inflater.inflate(R.layout.terbarus, container, false);
-        View rootView = inflater.inflate(R.layout.stat, container, false);
-        lv= (ListView)rootView.findViewById(android.R.id.list);
-
-        return rootView;
-
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        // Call Async task to get the match fixture
+        lv = findViewById(android.R.id.list);
         new GetFixture().execute();
-        getActivity().setTitle("Absensi Terakhir");
+        this.setTitle("Absensi Terakhir");
     }
 
-
+    @SuppressLint("StaticFieldLeak")
     private class GetFixture extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
         }
 
+        @SuppressLint("LongLogTag")
         @Override
         protected Void doInBackground(Void... arg) {
             //Create service handler class instance
             ServiceHandler serviceClient = new ServiceHandler();
             //Url request and response
-            Log.d("url: ", "> " + URL_ITEMS+tglawal+"&tglakhir="+tglakhir);
-            String json = serviceClient.makeServiceCall(URL_ITEMS+tglawal+"&tglakhir="+tglakhir, ServiceHandler.GET);
+            String URL_ITEMS = Server.TERBARU;
+            Log.d("url: ", "> " + URL_ITEMS);
+            String json = serviceClient.makeServiceCall(URL_ITEMS, ServiceHandler.GET);
             // print the json response in the log
             Log.d("Get match fixture response: ", "> " + json);
 
@@ -104,24 +87,24 @@ public class stat_absensi extends Fragment {
                         Log.d("nama", nama);
                         String tanggal = c.getString(TAG_TANGGAL);
                         Log.d("tanggal", tanggal);
-                        String keterlambatan = c.getString(TAG_KETERLAMBATAN);
-                        Log.d("keterlambatan", keterlambatan);
-                        String kehadiran = c.getString(TAG_KEHADIRAN);
-                        Log.d("kehadiran", kehadiran);
-                        String lembur = c.getString(TAG_STAT_LEMBUR);
-                        Log.d("lembur", lembur);
-                        String jml_lembur = c.getString(TAG_JML_LEMBUR);
-                        Log.d("jml_lembur", jml_lembur);
+                        String jam_datang = c.getString(TAG_JAM_DATANG);
+                        Log.d("jam_datang", jam_datang);
+                        String istirahat = c.getString(TAG_ISTIRAHAT);
+                        Log.d("istirahat", istirahat);
+                        String masuk = c.getString(TAG_MASUK);
+                        Log.d("masuk", masuk);
+                        String jam_pulang = c.getString(TAG_JAM_PULANG);
+                        Log.d("jam_pulang", jam_pulang);
                         // Temporary HashMap for single data
-                        HashMap<String, String> matchFixture = new HashMap<String, String>();
+                        HashMap<String, String> matchFixture = new HashMap<>();
                         // Adding each child node to Hashmap key -> value
                         matchFixture.put(TAG_PIN, pin);
                         matchFixture.put(TAG_NAMA, nama);
                         matchFixture.put(TAG_TANGGAL, tanggal);
-                        matchFixture.put(TAG_KETERLAMBATAN, keterlambatan);
-                        matchFixture.put(TAG_KEHADIRAN, kehadiran);
-                        matchFixture.put(TAG_STAT_LEMBUR, lembur);
-                        matchFixture.put(TAG_JML_LEMBUR, jml_lembur);
+                        matchFixture.put(TAG_JAM_DATANG, jam_datang);
+                        matchFixture.put(TAG_ISTIRAHAT, istirahat);
+                        matchFixture.put(TAG_MASUK, masuk);
+                        matchFixture.put(TAG_JAM_PULANG, jam_pulang);
                         //Adding fixture to List
                         matchFixtureList.add(matchFixture);
                     }
@@ -141,13 +124,13 @@ public class stat_absensi extends Fragment {
 
 
             ListAdapter adapter = new SimpleAdapter(
-                    stat_absensi.this.getActivity(), matchFixtureList,
-                    R.layout.stat_list, new String[]{
-                    TAG_PIN, TAG_NAMA, TAG_TANGGAL, TAG_KETERLAMBATAN, TAG_KEHADIRAN, TAG_STAT_LEMBUR,  TAG_JML_LEMBUR
+                    Activity_terbaru.this, matchFixtureList,
+                    R.layout.list_item, new String[]{
+                    TAG_PIN, TAG_NAMA, TAG_TANGGAL, TAG_JAM_DATANG, TAG_ISTIRAHAT, TAG_MASUK,  TAG_JAM_PULANG
             }
                     , new int[]{
-                    R.id.pin, R.id.nama, R.id.tanggal, R.id.terlambat, R.id.hadir, R.id.stat_lembur,
-                    R.id.jml_lembur
+                    R.id.pin, R.id.nama, R.id.tanggal, R.id.jam_datang, R.id.istirahat, R.id.masuk,
+                    R.id.jam_pulang
             }
             );
 
@@ -156,6 +139,5 @@ public class stat_absensi extends Fragment {
         }
 
     }
-
 
 }

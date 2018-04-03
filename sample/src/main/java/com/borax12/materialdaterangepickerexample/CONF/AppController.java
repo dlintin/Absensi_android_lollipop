@@ -1,4 +1,4 @@
-package com.borax12.materialdaterangepickerexample.app;
+package com.borax12.materialdaterangepickerexample.CONF;
 
 import android.app.Application;
 import android.text.TextUtils;

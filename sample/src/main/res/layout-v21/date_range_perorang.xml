@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="fill_parent"
     android:layout_width="match_parent"
-    tools:context="com.borax12.materialdaterangepickerexample.Activity_range_tanggal"
-    android:weightSum="1"
-    >
+    tools:context="com.borax12.materialdaterangepickerexample.Activity_record_perorang"
+    android:weightSum="1">
 
 
     <TableLayout
@@ -19,35 +18,41 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
-
         <TableRow
-
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <Button
-
-                android:id="@+id/date_button"
-                style="@style/Widget.AppCompat.Button.Colored"
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/pilih_tanggal" />
-
-            <Button
-                android:id="@+id/lihat_data"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lihat_data" />
-
+                android:layout_span="2"
+                android:drawableLeft="@drawable/ic_search_black_24dp"
+                android:drawableStart="@drawable/ic_search_black_24dp"
+                android:hint ="@string/cari_pegawai"
+                tools:ignore="RtlHardcoded" />
 
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            
+            <Button
+                android:id="@+id/date_button"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pilih_tanggal" />
+            <Button
+                android:id="@+id/lihat_data"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lihat_data" />
+        </TableRow>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <TextView
                 android:id="@+id/date_textview"
                 android:layout_width="wrap_content"
@@ -58,8 +63,6 @@
                 android:textAlignment="center"
                 android:textStyle="bold" />
         </TableRow>
-
- 
     </TableLayout>
 
 </RelativeLayout>

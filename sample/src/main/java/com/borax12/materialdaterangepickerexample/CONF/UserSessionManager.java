@@ -1,9 +1,11 @@
-package com.borax12.materialdaterangepickerexample;
+package com.borax12.materialdaterangepickerexample.CONF;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+
+import com.borax12.materialdaterangepickerexample.Login;
 
 import java.util.HashMap;
 

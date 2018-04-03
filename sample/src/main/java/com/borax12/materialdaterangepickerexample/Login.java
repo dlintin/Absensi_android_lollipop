@@ -11,16 +11,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.borax12.materialdaterangepickerexample.app.AppController;
+import com.borax12.materialdaterangepickerexample.CONF.AppController;
+import com.borax12.materialdaterangepickerexample.CONF.Server;
+import com.borax12.materialdaterangepickerexample.CONF.UserSessionManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,26 +29,18 @@ import java.util.Map;
  */
 public class Login extends AppCompatActivity {
 
-
     ProgressDialog pDialog;
     Button btn_register, btn_login;
     EditText txt_username, txt_password;
     Intent intent;
     UserSessionManager session;
-
     int success;
     ConnectivityManager conMgr;
-
-    private String url = Server.URL + "login.php";
-
     private static final String TAG = Login.class.getSimpleName();
-
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
-
     public final static String TAG_USERNAME = "username";
     public final static String TAG_ID = "id";
-
     String tag_json_obj = "json_obj_req";
 
     @Override
@@ -62,19 +54,19 @@ public class Login extends AppCompatActivity {
 
         conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         {
-            if (conMgr.getActiveNetworkInfo() != null
-                    && conMgr.getActiveNetworkInfo().isAvailable()
-                    && conMgr.getActiveNetworkInfo().isConnected()) {
-            } else {
-                Toast.makeText(getApplicationContext(), "No Internet Connection",
-                        Toast.LENGTH_LONG).show();
-            }
+            assert conMgr != null;
+            if (conMgr.getActiveNetworkInfo() == null
+                    || !conMgr.getActiveNetworkInfo().isAvailable()
+                    || !conMgr.getActiveNetworkInfo().isConnected()) {
+                        Toast.makeText(getApplicationContext(), "No Internet Connection",
+                                Toast.LENGTH_LONG).show();
+                    }
         }
 
-        btn_login = (Button) findViewById(R.id.btn_login);
-        btn_register = (Button) findViewById(R.id.btn_register);
-        txt_username = (EditText) findViewById(R.id.txt_username);
-        txt_password = (EditText) findViewById(R.id.txt_password);
+        btn_login =  findViewById(R.id.btn_login);
+        btn_register = findViewById(R.id.btn_register);
+        txt_username = findViewById(R.id.txt_username);
+        txt_password = findViewById(R.id.txt_password);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
 
@@ -119,11 +111,12 @@ public class Login extends AppCompatActivity {
         pDialog.setMessage("Logging in ...");
         showDialog();
 
+        String url = Server.LOGIN;
         StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "Login Response: " + response.toString());
+                Log.e(TAG, "Login Response: " + response);
                 hideDialog();
 
                 try {
@@ -144,7 +137,7 @@ public class Login extends AppCompatActivity {
 
                         // Memanggil main activity
                         Intent intent = new Intent(Login.this,
-                                MainActivity.class);
+                                Menu_utama.class);
                         intent.putExtra(TAG_ID, id);
                         intent.putExtra(TAG_USERNAME, username);
                         finish();
@@ -176,7 +169,7 @@ public class Login extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() {
                 // Posting parameters to login url
-                Map<String, String> params = new HashMap<String, String>();
+                Map<String, String> params = new HashMap<>();
                 params.put("username", username);
                 params.put("password", password);
 
