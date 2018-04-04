@@ -1,14 +1,21 @@
 package com.borax12.materialdaterangepickerexample;
 
 
+import android.annotation.SuppressLint;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.borax12.materialdaterangepicker.date.DatePickerDialog;
+
+import java.lang.ref.SoftReference;
 import java.util.Calendar;
 
 public class Activity_record_perorang extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
@@ -18,17 +25,20 @@ public class Activity_record_perorang extends AppCompatActivity implements DateP
     private boolean mAutoHighlight = true;
     String tglawal,tglakhir;
 
+    @SuppressLint("ShowToast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.date_range_perorang);
-
         this.setTitle("Cari Pegawai");
-
         // Find our View instances
         dateTextView = findViewById(R.id.date_textview);
         Button dateButton = findViewById(R.id.date_button);
         Button btn_lihat = findViewById(R.id.lihat_data);
+
+        final AutoCompleteTextView acTextView = findViewById(R.id.autoCompleteTextView);
+        acTextView.setAdapter(new SuggestionAdapter(this,acTextView.getText().toString()));
+
 
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,23 +59,26 @@ public class Activity_record_perorang extends AppCompatActivity implements DateP
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
+                final String nama = acTextView.getText().toString();
 
                 Bundle bundle = new Bundle();
+                bundle.putString("nama",nama);
                 bundle.putString("tglawal",tglawal);
                 bundle.putString("tglakhir",tglakhir);
 
-
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                select_tanggalreport select_tanggalreport = new select_tanggalreport();
-                select_tanggalreport.setArguments(bundle);
-
-                fragmentTransaction.replace(R.id.layout, select_tanggalreport);
+                select_perorang select_perorang = new select_perorang();
+                select_perorang.setArguments(bundle);
+                fragmentTransaction.replace(R.id.layout, select_perorang);
                 getFragmentManager().popBackStackImmediate();
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 //
             }
         });
+
+
+
     }
 
 
@@ -85,6 +98,5 @@ public class Activity_record_perorang extends AppCompatActivity implements DateP
         //mengatur textview dengan string tanggal
         dateTextView.setText(date);
     }
-
 
 }

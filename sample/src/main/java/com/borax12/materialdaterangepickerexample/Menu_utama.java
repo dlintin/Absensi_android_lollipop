@@ -64,6 +64,8 @@ public class Menu_utama extends AppCompatActivity {
 
     @OnClick(R.id.perorang)
     public void onPerorangClicked() {
+        Intent intent = new Intent(Menu_utama.this, Activity_record_perorang.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.status)
